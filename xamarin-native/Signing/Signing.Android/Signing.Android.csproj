@@ -45,6 +45,9 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KeyManagerAndroid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\KeyManagerAndroid\KeyManagerAndroid\bin\Debug\KeyManagerAndroid.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
