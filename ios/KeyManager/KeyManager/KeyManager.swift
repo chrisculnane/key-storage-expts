@@ -18,8 +18,8 @@ public class KeyManager: NSObject {
     }
     
     @objc
-    public func sign(_ message: NSArray) -> NSArray {
-        return Array(key.sign(Data(message as! [UInt8])).rawRepresentation) as NSArray
+    public func sign(_ message: [UInt8]) -> [UInt8] {
+        return Array(key.sign(Data(message)).rawRepresentation)
     }
     
     @objc
@@ -72,10 +72,12 @@ enum AgnosticP256Key {
         #endif
         
         if (!isSimulator && SecureEnclave.isAvailable) {
+            print("using Secure Enclave")
             return getSecureEnclaveKey().map({
                 SecEnclaveKey($0)
             })
         } else {
+            print("using Keychain")
             return getKeychainKey().map({
                 KeychainKey($0)
             })

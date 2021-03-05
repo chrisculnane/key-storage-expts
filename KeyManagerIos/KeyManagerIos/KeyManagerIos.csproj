@@ -47,8 +47,9 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\..\RightToAsk\Engineering\key-storage\ios\KeyManager\build\Release-iphoneos\KeyManager.framework">
+    <NativeReference Include="..\..\ios\KeyManager\build\Release-fat\KeyManager.framework">
       <Kind>Framework</Kind>
+      <Frameworks>Foundation CryptoKit LocalAuthentication</Frameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />

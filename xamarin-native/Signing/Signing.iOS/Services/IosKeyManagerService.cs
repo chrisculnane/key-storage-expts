@@ -1,8 +1,9 @@
-﻿using System;
+﻿    using System;
 using Binding;
 using Foundation;
 using Signing.Services;
 
+[assembly: Xamarin.Forms.Dependency(typeof(Signing.iOS.Services.IosKeyManagerService))]
 namespace Signing.iOS.Services {
     public class IosKeyManagerService : IKeyManagerService {
         private readonly KeyManager key;

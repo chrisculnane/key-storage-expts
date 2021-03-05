@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Signing.iOS.Services;
+using Signing.Services;
 using UIKit;
+using Xamarin.Forms;
 
 namespace Signing.iOS {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -21,6 +24,7 @@ namespace Signing.iOS {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options) {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+            DependencyService.Register<IKeyManagerService, IosKeyManagerService>();
 
             return base.FinishedLaunching(app, options);
         }
