@@ -11,9 +11,12 @@ This directory contains several projects demonstrating how to interact with the 
 ## Building
 ### Android
 (Based on [Xamarin documentation](https://docs.microsoft.com/en-us/xamarin/android/platform/binding-kotlin-library/walkthrough).)
-* Using Android Studio to build `android/KeyStoreTest/KeyManager/` (e.g. open `KeyManager.kt` and click Build -> Make Module '...') produces an Android library at `android/KeystoreTest/KeyManager/build/outputs/aar`.
-* Copying the Android library to `KeyManagerAndroid/KeyManagerAndroid/Jars` allows `KeyManagerAndroid` to build, producing a Xamarin Android DLL at `KeyManagerAndroid/KeyManagerAndroid/bin/Debug`.
-* Adding this as a dependency to `xamarin-native` (right-click "Dependencies" under the Android project, click "Add Reference", and click "Add From...".) allows it to build and run on the Android emulator, using the Android Keystore.
+* Use Android Studio to open the `android/KeystoreTest` project and build `KeyManager` (e.g. open `KeyManager.kt` and click Build -> Make Module '...') to produce an Android library at `android/KeystoreTest/KeyManager/build/outputs/aar`.
+* Copy the Android library `KeyManager-debug.aar` to `KeyManagerAndroid/KeyManagerAndroid/Jars`. Open the `KeyManagerAndroid` solution (e.g. in Jetbrains Rider or Visual Studio) and build it, producing a Xamarin Android DLL at `KeyManagerAndroid/KeyManagerAndroid/bin/Debug`.
+    * **Make sure you open the solution file** (ending in `.sln`), not the directory.
+    * Before building, right-click the copied `KeyManager-debug.aar` file and click Properties. Make sure "Build action:" is set to "LibraryProjectZip". (See [here](https://docs.microsoft.com/en-us/xamarin/android/platform/binding-java-library/binding-an-aar) for more information.)
+* Open the `xamarin-native` solution (e.g. in Jetbrains Rider or Visual Studio) and add the Xamarin Android DLL as a dependency to `xamarin-native`: right-click "Dependencies" under the Android project (here called `Signing.Android`), click "Add Reference", and click "Add From...". This allows it to build and run on the Android emulator, using the Android Keystore.
+    * Again **make sure you open the solution file** (ending in `.sln`), not the directory.
 
 ### iOS
 (Based on [Xamarin documentation](https://docs.microsoft.com/en-us/xamarin/ios/platform/binding-swift/walkthrough).)
@@ -38,7 +41,7 @@ This directory contains several projects demonstrating how to interact with the 
     * If building this project does not work immediately, remove the native reference from the solution, right-click "Native References" -> "Add Native References", and click `ios/KeyManager/build/Release-fat/KeyManager.framework/KeyManager` (i.e. the executable file).
     * Right-click to open the added native reference's Properties and make sure "Smart Link" is checked.
     * Also under Properties, add `Foundation CryptoKit LocalAuthentication` to the Frameworks field.
-* Open `xamarin-native/Signing/Signing.sln` in Visual Studio, and add the reference `KeyManagerIos/KeyManagerIos/bin/Debug/NativeLibrary.dll` (as a ".NET Assembly"). You can now build and deploy to iOS using the Secure Enclave.
+* Open `xamarin-native/Signing/Signing.sln` in Visual Studio, and add the reference `KeyManagerIos/KeyManagerIos/bin/Debug/NativeLibrary.dll` (as a ".NET Assembly") to the iOS project (here). You can now build and deploy to iOS using the Secure Enclave.
     * In theory this should also work for the iOS Simulator, but I had a lot of trouble doing this and unfortunately can't really figure out why.
 
 **Troubleshooting:**
@@ -51,3 +54,10 @@ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
     * In the `Signing.iOS` project, open `Entitlements.plist` and add the `Keychain Access Groups` property if it is not present.
     * Open `Signing.iOS` project options, and check that "iOS Bundle Signing" has "Custom Entitlements" set to `Entitlements.plist`.
 * If you get weird errors in the `xamarin-native` solution, you can try removing the Xamarin.Essentials NuGet package and adding it again.
+
+
+## Troubleshooting
+* If you can't build the KeyManager Android Studio project, try opening the `build.gradle` file in the `KeyManager` directory and clicking any "run" buttons visible in it.
+* Try updating Android Studio and/or the Kotlin version.
+* Try opening the `KeyManager` project directly, instead of the `KeyStoreTest` parent project.
+* Try running the "app" target of the `KeystoreTest` project.
