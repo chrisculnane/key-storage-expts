@@ -1,9 +1,9 @@
-﻿<Properties StartupConfiguration="{3C9BAAD6-F703-4C89-972D-11857C9E838F}|Default">
-  <MonoDevelop.Ide.ItemProperties.signing.iOS TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5D77F515-2FAD-4821-AAE8-15A328E79B9C" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="signing/Views/SignaturePage.xaml.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../../../../usr/share/dotnet/sdk/5.0.200/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets">
     <Files>
       <File FileName="signing/Views/SignaturePage.xaml" Line="3" Column="26" />
       <File FileName="signing/Views/SignaturePage.xaml.cs" Line="55" Column="1" />
+      <File FileName="../../../../../../../../usr/share/dotnet/sdk/5.0.200/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" Line="271" Column="39" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,11 +11,10 @@
           <Node name="signing" expanded="True">
             <Node name="signing" expanded="True">
               <Node name="Views" expanded="True">
-                <Node name="SignaturePage.xaml" expanded="True">
-                  <Node name="SignaturePage.xaml.cs" selected="True" />
-                </Node>
+                <Node name="SignaturePage.xaml" expanded="True" />
               </Node>
             </Node>
+            <Node name="signing.Android" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -23,7 +22,10 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.signing.Android TriggeredFromHotReload="False" PreferredExecutionTarget="Android.SelectDevice" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <DisabledProjects>
+    <String>signing.iOS/signing.iOS.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
