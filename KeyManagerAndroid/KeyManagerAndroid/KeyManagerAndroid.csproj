@@ -45,7 +45,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -59,7 +58,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\KeyManager-debug.aar" />
+    <LibraryProjectZip Include="..\..\android\KeystoreTest\KeyManager\build\outputs\aar\KeyManager-debug.aar">
+      <Link>Jars/KeyManager-debug.aar</Link>
+    </LibraryProjectZip>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
